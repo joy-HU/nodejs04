@@ -1,0 +1,14 @@
+<header id='header'>
+	<!-- 点击跳转到登录页面 -->
+	<a href="/" id='logo'></a>
+	<nav id='nav'>
+		{% for category in categories%}
+			<a href=''>{{ category.name }}</a>
+		{% endfor %}
+	</nav>
+	<div id='user'>
+		<a href="/register">注册</a>
+		<a href='/logon'>登录</a>
+		<a href='/additem'>添加商品</a>
+	</div>
+</header>
