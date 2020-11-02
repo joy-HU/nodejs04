@@ -28,9 +28,12 @@
 						{% if i+1 == page%}
 						<a href='/?page={{ i + 1}}'class='current'>{{ i+ 1}}</a>
 						{% endif %}
-					{% endfor %}
-					<a href='/?page={{ page + 1}}'>下一页</a>
-					
+					{% endfor %} 
+					{% if page == pages %}
+					<a href='/?page={{pages}}'>下一页</a>
+					{% else %}
+					<a href='/?page={{page + 1}}'>下一页</a>
+					{% endif %}
 				</div>
 			</div>
 			

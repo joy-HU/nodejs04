@@ -60,11 +60,13 @@ router.get('/',getCategories, async ctx => {
 		data
 	})
 })
+
 router.get('/register', getCategories, ctx => {
 	ctx.body = Nunjucks.render('register.html', {
 		categories: ctx.state.categories
 	})
 })
+// 注册界面
 router.post('/register',async ctx => {
 	let { username, password, repassword } = ctx.request.body
 	let res = await query('select * from `users` where username = ?',[
@@ -87,9 +89,15 @@ router.post('/register',async ctx => {
 	])
 	ctx.body = '注册成功'
 })
+// 登录界面
+router.get('/login', getCategories, async ctx => {
+	ctx.body = Nunjucks.render('login.html', {
+		getCategories: ctx.state.categories
+	})
+})
 app.use(router.routes())
 app.listen('8800', () => {
-	console.log('服务器已启动')
+	console.log('服务器已启动: http://localhost:8800')
 })
 function query(sql, data){
 	return new Promise((res, rej) => {
